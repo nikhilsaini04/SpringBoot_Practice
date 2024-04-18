@@ -6,15 +6,23 @@ import com.springboot.couple.Dog;
 import com.springboot.couple.Person;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class SpringCoreDemoApplication {
 
 	public static void main(String[] args) {
-		Animal animal=new Cat();
+		// 1. about the beans
+		// 2. about dependency
+		// 3. where to search the beans
+
+		/*Animal animal=new Cat();
 		Person p=new Person(animal);
-		p.playWithAnimal();
-		SpringApplication.run(SpringCoreDemoApplication.class, args);
+		p.playWithAnimal();*/
+		ApplicationContext context = SpringApplication.run(SpringCoreDemoApplication.class, args);
+		Person personBean=context.getBean(Person.class);
+		personBean.playWithAnimal();
 	}
 
 }
