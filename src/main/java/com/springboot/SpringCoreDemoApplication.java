@@ -28,6 +28,7 @@ public class SpringCoreDemoApplication {
 		personBean.playWithAnimal();
 		Test testBean=context.getBean(Test.class);
 		testBean.testing();
+		//
 	}
 
 }
