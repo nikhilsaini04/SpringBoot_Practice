@@ -8,8 +8,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import test.Test;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.springboot","test"})
 public class SpringCoreDemoApplication {
 
 	public static void main(String[] args) {
@@ -23,6 +26,8 @@ public class SpringCoreDemoApplication {
 		ApplicationContext context = SpringApplication.run(SpringCoreDemoApplication.class, args);
 		Person personBean=context.getBean(Person.class);
 		personBean.playWithAnimal();
+		Test testBean=context.getBean(Test.class);
+		testBean.testing();
 	}
 
 }
